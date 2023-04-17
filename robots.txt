@@ -1,4 +1,4 @@
-Sitemap: https://precedent.dev/sitemap.xml
+Sitemap: https://kbo.sk/sitemap.xml
 
 User-agent: *
 Disallow: /api

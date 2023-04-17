@@ -1,6 +1,7 @@
-/* eslint-disable @next/next/no-img-element */
 import { ImageResponse } from "@vercel/og";
 import { NextRequest } from "next/server";
+
+import { DOMAIN } from "@/lib/constants";
 
 export const config = {
   runtime: "experimental-edge",
@@ -14,7 +15,7 @@ export default async function handler(req: NextRequest) {
   const [sfProData] = await Promise.all([sfPro]);
 
   const { searchParams } = req.nextUrl;
-  const title = searchParams.get("title") || "Precedent";
+  const title = searchParams.get("title") || DOMAIN;
 
   return new ImageResponse(
     (
@@ -31,11 +32,6 @@ export default async function handler(req: NextRequest) {
             "linear-gradient(to bottom right, #E0E7FF 25%, #ffffff 50%, #CFFAFE 75%)",
         }}
       >
-        <img
-          src={new URL("../../public/logo.png", import.meta.url).toString()}
-          alt="Precedent Logo"
-          tw="w-20 h-20 mb-4 opacity-95"
-        />
         <h1
           style={{
             fontSize: "100px",
