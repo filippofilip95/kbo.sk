@@ -1,11 +1,11 @@
 import Head from "next/head";
 
-import { DOMAIN } from "@/lib/constants";
+import { domain } from "@/lib/constants";
 
 export default function Meta({
   title = "kbo.sk - Building blocks for your Next.js project",
   description = "kbo.sk is the all-in-one solution for your Next.js project. It includes a design system, authentication, analytics, and more.",
-  image = `${DOMAIN}/api/og`,
+  image = `${domain}/api/og`,
 }: {
   title?: string;
   description?: string;
@@ -20,7 +20,7 @@ export default function Meta({
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta itemProp="image" content={image} />
-      <meta property="og:logo" content={`${DOMAIN}/logo.png`}></meta>
+      <meta property="og:logo" content={`${domain}/logo.png`}></meta>
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />

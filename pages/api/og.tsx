@@ -1,7 +1,7 @@
 import { ImageResponse } from "@vercel/og";
 import { NextRequest } from "next/server";
 
-import { DOMAIN } from "@/lib/constants";
+import { domain } from "@/lib/constants";
 
 export const config = {
   runtime: "experimental-edge",
@@ -15,7 +15,7 @@ export default async function handler(req: NextRequest) {
   const [sfProData] = await Promise.all([sfPro]);
 
   const { searchParams } = req.nextUrl;
-  const title = searchParams.get("title") || DOMAIN;
+  const title = searchParams.get("title") || domain;
 
   return new ImageResponse(
     (
