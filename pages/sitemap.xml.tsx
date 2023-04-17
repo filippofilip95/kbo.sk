@@ -1,22 +1,24 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
+import { DOMAIN } from "@/lib/constants";
+
 function generateSiteMap({
   hostname,
-  users,
+  projects,
 }: {
   hostname: string;
-  users: string[];
+  projects: string[];
 }) {
   return `<?xml version="1.0" encoding="UTF-8"?>
      <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
        <url>
          <loc>${hostname}</loc>
        </url>
-       ${users
-         .map((username) => {
+       ${projects
+         .map((project) => {
            return `
          <url>
-             <loc>${`${hostname}/${username}`}</loc>
+             <loc>${`${hostname}/${project}`}</loc>
          </url>
        `;
          })
@@ -36,8 +38,6 @@ export async function getServerSideProps({
   req: NextApiRequest;
   res: NextApiResponse;
 }) {
-  const hostname = `https://precedent.dev`;
-
   // Generate dynamic data for the sitemap
   //   const users = await prisma.user.findMany({
   //     select: {
@@ -47,8 +47,8 @@ export async function getServerSideProps({
 
   // We generate the XML sitemap with the posts data
   const sitemap = generateSiteMap({
-    hostname,
-    users: [],
+    hostname: DOMAIN,
+    projects: [],
   });
 
   res.setHeader("Content-Type", "text/xml");
