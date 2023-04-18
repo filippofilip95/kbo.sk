@@ -20,16 +20,16 @@ export default function Home() {
         </header>
         <main className="mt-6 flex flex-col gap-8">
           <p className="text-stone-700 dark:text-slate-100">
-            I'm a product designer creative design engineer problem solver based
+            I&apos;m a design engineer based
             in Toronto, Berlin, Bratislava.
           </p>
           <p className="text-stone-700 dark:text-slate-100">
             I specialise in building digital products, interfaces, and design
-            systems. I'm currently building product at{" "}
+            systems. I&apos;m currently building product at{" "}
             <a href="https://www.kontentino.com/">Kontentino</a>.
           </p>
           <p className="text-stone-700 dark:text-slate-100">
-            I'm interested in a variety of topics including product design, web
+            I&apos;m interested in a variety of topics including product design, web
             development, information architecture, interaction design and ux
             research.
           </p>
