@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
-import { DOMAIN } from "@/lib/constants";
+import { domain } from "@/lib/constants";
 
 function generateSiteMap({
   hostname,
@@ -47,7 +47,7 @@ export async function getServerSideProps({
 
   // We generate the XML sitemap with the posts data
   const sitemap = generateSiteMap({
-    hostname: DOMAIN,
+    hostname: domain,
     projects: [],
   });
 
