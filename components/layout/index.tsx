@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import Meta from "./meta";
+import Navigation from "@/components/layout/Navigation";
 
 export default function Layout({
   meta,
@@ -15,7 +16,8 @@ export default function Layout({
   return (
     <>
       <Meta {...meta} />
-      <main className="flex w-full flex-col items-center justify-center py-32">
+      <Navigation />
+      <main className="mx-auto flex w-full max-w-2xl items-center justify-center">
         {children}
       </main>
     </>
