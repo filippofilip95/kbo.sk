@@ -2,7 +2,7 @@ import "@/styles/globals.scss";
 import type { AppProps } from "next/app";
 import { Analytics } from "@vercel/analytics/react";
 import type { Session } from "next-auth";
-import { Provider as RWBProvider } from "react-wrap-balancer";
+import { ThemeProvider } from "next-themes";
 import cx from "classnames";
 import localFont from "@next/font/local";
 import { Inter } from "@next/font/google";
@@ -22,13 +22,11 @@ export default function MyApp({
   pageProps: { session, ...pageProps },
 }: AppProps<{ session: Session }>) {
   return (
-    <>
-      <RWBProvider>
-        <div className={cx(sfPro.variable, inter.variable)}>
-          <Component {...pageProps} />
-        </div>
-      </RWBProvider>
+    <ThemeProvider attribute="class">
+      <div className={cx(sfPro.variable, inter.variable)}>
+        <Component {...pageProps} />
+      </div>
       <Analytics />
-    </>
+    </ThemeProvider>
   );
 }

@@ -115,12 +115,12 @@
   border: none;
   width: 100%;
   font-size: 17px;
-  padding: 8px 8px 16px 8px;
+  padding: 8px 8px 8px 8px;
   outline: none;
   background: var(--bg);
   color: var(--gray12);
-  border-bottom: 1px solid var(--gray6);
-  margin-bottom: 16px;
+  //border-bottom: 1px solid var(--gray6);
+  //margin-bottom: 16px;
   border-radius: 0;
 
   &::placeholder {
@@ -186,8 +186,8 @@
 }
 
 [cmdk-list] {
-  height: min(330px, calc(var(--cmdk-list-height)));
-  max-height: 400px;
+  //height: min(330px, calc(var(--cmdk-list-height)));
+  max-height: 500px;
   overflow: auto;
   overscroll-behavior: contain;
   transition: 100ms ease;

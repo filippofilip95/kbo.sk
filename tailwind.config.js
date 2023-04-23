@@ -1,8 +1,8 @@
-/** @type {import('tailwindcss').Config} */
 const plugin = require("tailwindcss/plugin");
 
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: 'class',
+  darkMode: "class",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
@@ -13,7 +13,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        obsidian: '#161616'
+        obsidian: "#161616",
       },
       fontFamily: {
         display: ["var(--font-sf)", "system-ui", "sans-serif"],
@@ -40,7 +40,6 @@ module.exports = {
   plugins: [
     require("@tailwindcss/forms"),
     require("@tailwindcss/typography"),
-    require("@tailwindcss/line-clamp"),
     require("tailwindcss-cmdk"),
     plugin(({ addVariant }) => {
       addVariant("radix-side-top", '&[data-side="top"]');
