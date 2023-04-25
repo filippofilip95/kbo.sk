@@ -3,7 +3,9 @@ import { Command } from "cmdk";
 import { useTheme } from "next-themes";
 import { Moon, Settings, Sun } from "react-feather";
 
-type Props = {};
+type Props = {
+  onClose: () => void;
+};
 
 const CommandMenuThemeSwitcher: FC<Props> = (props) => {
   const { systemTheme, theme, setTheme } = useTheme();
@@ -31,16 +33,17 @@ const CommandMenuThemeSwitcher: FC<Props> = (props) => {
           </div>
         </Command.Item>
       )}
-      {theme !== "system" && (
-        <Command.Item onSelect={() => setTheme("system")}>
-          <div className="flex items-center gap-2">
-            <div>
-              <Settings />
-            </div>
-            <div>Set theme to system</div>
+      <Command.Item onSelect={() => {
+        setTheme("system")
+        props.onClose()
+      }}>
+        <div className="flex items-center gap-2">
+          <div>
+            <Settings />
           </div>
-        </Command.Item>
-      )}
+          <div>Set theme to system</div>
+        </div>
+      </Command.Item>
     </Command.Group>
   );
 };

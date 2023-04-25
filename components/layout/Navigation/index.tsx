@@ -5,8 +5,8 @@ type Props = {};
 
 const Navigation: FC<Props> = (props) => {
   return (
-    <nav className="mx-auto max-w-2xl py-8 flex">
-      <CommandMenu  className='ml-auto'/>
+    <nav className="mx-auto flex max-w-[640px] p-10">
+      <CommandMenu className="ml-auto" />
     </nav>
   );
 };

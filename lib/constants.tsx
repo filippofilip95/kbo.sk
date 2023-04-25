@@ -1,4 +1,4 @@
-import { BookOpen, Code, Dribbble, Edit2, Figma, GitHub, Mail, Twitter, } from "react-feather";
+import { Dribbble, FileText, GitHub, Mail, Twitter, } from "react-feather";
 import React from "react";
 
 export const domain = "https://kbo.sk";
@@ -35,24 +35,6 @@ export const connections: ListItem[] = [
   {
     label: "Read.cv",
     href: "https://read.cv/jakubkrehel",
-    icon: <BookOpen size={iconSize} />,
-  },
-];
-
-export const skills: ListItem[] = [
-  {
-    label: "Figma",
-    href: "https://dribbble.com/jakubkrehel/",
-    icon: <Figma />,
-  },
-  {
-    label: "Code",
-    href: "https://github.com/jakubkrehel/",
-    icon: <Code />,
-  },
-  {
-    label: "Writing",
-    href: "https://read.cv/jakubkrehel/",
-    icon: <Edit2 />,
+    icon: <FileText size={iconSize} />,
   },
 ];
