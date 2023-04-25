@@ -4,8 +4,8 @@ import { domain } from "@/lib/constants";
 import React from "react";
 
 export default function Meta({
-  title = "kbo.sk - Building blocks for your Next.js project",
-  description = "kbo.sk is the all-in-one solution for your Next.js project. It includes a design system, authentication, analytics, and more.",
+  title = "Jakub Krehel",
+  description = "Jakub Krehel",
   image = `${domain}/api/og`,
 }: {
   title?: string;

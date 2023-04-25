@@ -1,7 +1,7 @@
 import React, { FC, useEffect } from "react";
 import { Command as CommandIcon } from "react-feather";
 import { Command } from "cmdk";
-import { connections, skills } from "@/lib/constants";
+import { connections } from "@/lib/constants";
 import CommandMenuDialog from "@/components/layout/Navigation/CommandMenuDialog";
 import CommandMenuThemeSwitcher from "components/layout/Navigation/CommandMenuThemeSwitcher";
 import Button from "@/components/shared/Button";
@@ -27,17 +27,33 @@ const CommandMenu: FC<Props> = (props) => {
     return () => document.removeEventListener("keydown", onKeyDown);
   }, []);
 
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      if (open) return;
+      // @ts-ignore
+      document.activeElement?.blur?.();
+    }, 150);
+
+    return () => {
+      clearInterval(timeout);
+    };
+  }, [open]);
+
   return (
     <>
-      <Button onClick={() => setOpen((open) => !open)} className="ml-auto">
-        <CommandIcon size={30} />
+      <Button
+        disabled={open}
+        onClick={(e) => setOpen((open) => !open)}
+        className="ml-auto"
+      >
+        <CommandIcon size={30} strokeWidth={1} />
       </Button>
       <CommandMenuDialog open={open} onClose={() => setOpen(false)}>
         <Command label="Command Menu">
           <div className="mb-2 flex items-center gap-2">
             <Command.Input
               placeholder="Search"
-              className="border-0 focus:outline-none focus:border-0 focus:ring-0"
+              className="border-0 focus:border-0 focus:outline-none focus:ring-0"
             />
             <div>
               <Button
@@ -51,7 +67,7 @@ const CommandMenu: FC<Props> = (props) => {
           <Command.List>
             <Command.Empty>No results found.</Command.Empty>
 
-            {skills.map((connection) => (
+            {connections.map((connection) => (
               <Command.Item
                 key={connection.label}
                 onSelect={() => window.open(connection.href, "_blank")}
@@ -63,20 +79,7 @@ const CommandMenu: FC<Props> = (props) => {
               </Command.Item>
             ))}
 
-            <Command.Group heading="Stay in touch">
-              {connections.map((connection) => (
-                <Command.Item
-                  key={connection.label}
-                  onSelect={() => window.open(connection.href, "_blank")}
-                >
-                  <div className="flex items-center gap-2">
-                    <div>{connection.icon}</div>
-                    <div>{connection.label}</div>
-                  </div>
-                </Command.Item>
-              ))}
-            </Command.Group>
-            <CommandMenuThemeSwitcher />
+            <CommandMenuThemeSwitcher onClose={() => setOpen(false)} />
           </Command.List>
         </Command>
       </CommandMenuDialog>

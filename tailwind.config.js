@@ -1,5 +1,3 @@
-const plugin = require("tailwindcss/plugin");
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: "class",
@@ -12,38 +10,15 @@ module.exports = {
   },
   theme: {
     extend: {
+      fontFamily: {
+        default: ["var(--font-sans)", "system-ui", "sans-serif"],
+      },
       colors: {
         obsidian: "#161616",
-      },
-      fontFamily: {
-        display: ["var(--font-sf)", "system-ui", "sans-serif"],
-        default: ["var(--font-inter)", "system-ui", "sans-serif"],
-      },
-      animation: {
-        // Tooltip
-        "slide-up-fade": "slide-up-fade 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-        "slide-down-fade": "slide-down-fade 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-      },
-      keyframes: {
-        // Tooltip
-        "slide-up-fade": {
-          "0%": { opacity: 0, transform: "translateY(6px)" },
-          "100%": { opacity: 1, transform: "translateY(0)" },
-        },
-        "slide-down-fade": {
-          "0%": { opacity: 0, transform: "translateY(-6px)" },
-          "100%": { opacity: 1, transform: "translateY(0)" },
-        },
+        "link-decoration-hover": "#707070",
+        "link-hover-dark": "#bababa",
+        "link-hover-light": "#707070",
       },
     },
   },
-  plugins: [
-    require("@tailwindcss/forms"),
-    require("@tailwindcss/typography"),
-    require("tailwindcss-cmdk"),
-    plugin(({ addVariant }) => {
-      addVariant("radix-side-top", '&[data-side="top"]');
-      addVariant("radix-side-bottom", '&[data-side="bottom"]');
-    }),
-  ],
 };
