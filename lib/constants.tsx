@@ -1,7 +1,8 @@
-import { Dribbble, FileText, GitHub, Mail, Twitter, } from "react-feather";
+import { Dribbble, FileText, GitHub, Mail, Twitter } from "react-feather";
 import React from "react";
 
 export const domain = "https://kbo.sk";
+export const siteName = "Jakub Krehel";
 
 const iconSize = 20;
 

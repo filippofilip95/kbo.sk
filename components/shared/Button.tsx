@@ -8,7 +8,7 @@ const Button: FC<Props> = ({ className, ...props }) => {
     <button
       {...props}
       className={cx(
-        "rounded-md p-2 text-neutral-700 outline-none transition-all hover:bg-neutral-200 focus:bg-neutral-300 focus:ring focus:ring-neutral-400 dark:text-neutral-100 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 dark:focus:ring-neutral-700",
+        "rounded-md p-2 text-text-light outline-none transition-all hover:bg-neutral-200 focus:bg-neutral-300 focus:ring focus:ring-neutral-400 dark:text-text-dark dark:hover:bg-neutral-800 dark:focus:bg-neutral-800 dark:focus:ring-neutral-700",
         className,
       )}
     />

@@ -46,7 +46,11 @@ const CommandMenu: FC<Props> = (props) => {
         onClick={(e) => setOpen((open) => !open)}
         className="ml-auto"
       >
-        <CommandIcon size={30} strokeWidth={1} />
+        <CommandIcon
+          size={30}
+          strokeWidth={1}
+          className="text-text-light dark:text-text-dark"
+        />
       </Button>
       <CommandMenuDialog open={open} onClose={() => setOpen(false)}>
         <Command label="Command Menu">
