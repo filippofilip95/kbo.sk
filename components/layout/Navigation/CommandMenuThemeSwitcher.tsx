@@ -18,7 +18,7 @@ const CommandMenuThemeSwitcher: FC<Props> = (props) => {
             <div>
               <Sun />
             </div>
-            <div>Switch light mode</div>
+            <div>Switch to light mode</div>
           </div>
         </Command.Item>
       )}
@@ -29,14 +29,16 @@ const CommandMenuThemeSwitcher: FC<Props> = (props) => {
             <div>
               <Moon />
             </div>
-            <div>Switch dark mode</div>
+            <div>Switch to dark mode</div>
           </div>
         </Command.Item>
       )}
-      <Command.Item onSelect={() => {
-        setTheme("system")
-        props.onClose()
-      }}>
+      <Command.Item
+        onSelect={() => {
+          setTheme("system");
+          props.onClose();
+        }}
+      >
         <div className="flex items-center gap-2">
           <div>
             <Settings />
