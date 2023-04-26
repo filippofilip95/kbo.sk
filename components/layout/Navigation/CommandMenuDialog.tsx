@@ -42,7 +42,9 @@ const CommandMenuDialog: FC<Props> = (props) => {
           leaveTo="opacity-0 scale-95"
         >
           <div className="fixed left-1/2 top-1/4 flex -translate-x-1/2 items-center justify-center p-4">
-            <Dialog.Panel className="w-[640px]">{props.children}</Dialog.Panel>
+            <Dialog.Panel className="w-[100vw] sm:w-[640px]">
+              {props.children}
+            </Dialog.Panel>
           </div>
         </Transition.Child>
       </Dialog>

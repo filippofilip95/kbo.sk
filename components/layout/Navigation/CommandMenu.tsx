@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { Command as CommandIcon } from "react-feather";
 import { Command } from "cmdk";
 import { connections } from "@/lib/constants";
@@ -12,6 +12,7 @@ type Props = {
 
 const CommandMenu: FC<Props> = (props) => {
   const [open, setOpen] = React.useState(false);
+  const [value, setValue] = useState("");
 
   useEffect(() => {
     // Toggle the menu when ⌘K is pressed
@@ -53,11 +54,13 @@ const CommandMenu: FC<Props> = (props) => {
         />
       </Button>
       <CommandMenuDialog open={open} onClose={() => setOpen(false)}>
-        <Command label="Command Menu">
+        <Command label="Command Menu" shouldFilter={false}>
           <div className="mb-2 flex items-center gap-2">
             <Command.Input
               placeholder="Search"
               className="border-0 focus:border-0 focus:outline-none focus:ring-0"
+              value={value}
+              onValueChange={setValue}
             />
             <div>
               <Button
@@ -71,17 +74,21 @@ const CommandMenu: FC<Props> = (props) => {
           <Command.List>
             <Command.Empty>No results found.</Command.Empty>
 
-            {connections.map((connection) => (
-              <Command.Item
-                key={connection.label}
-                onSelect={() => window.open(connection.href, "_blank")}
-              >
-                <div className="flex items-center gap-2">
-                  <div>{connection.icon}</div>
-                  <div>{connection.label}</div>
-                </div>
-              </Command.Item>
-            ))}
+            {connections
+              .filter(({ label }) =>
+                label.trim().toLowerCase().includes(value.trim().toLowerCase()),
+              )
+              .map((connection) => (
+                <Command.Item
+                  key={connection.label}
+                  onSelect={() => window.open(connection.href, "_blank")}
+                >
+                  <div className="flex items-center gap-2">
+                    <div>{connection.icon}</div>
+                    <div>{connection.label}</div>
+                  </div>
+                </Command.Item>
+              ))}
 
             <CommandMenuThemeSwitcher onClose={() => setOpen(false)} />
           </Command.List>

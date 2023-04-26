@@ -19,16 +19,8 @@ export default function Home() {
         <main className="mt-10 flex flex-col gap-8">
           <p className="text-text-light dark:text-text-dark">
             I’m a product designer interested in web development based in{" "}
-            <a
-              href="https://goo.gl/maps/FZby2vNrXrSMYnrF8"
-              target="_blank"
-              className="underline"
-              rel="noreferrer"
-            >
-              Bratislava
-            </a>
-            , Slovakia. I specialise in building digital products and design
-            systems.
+            Bratislava, Slovakia. I specialise in building digital products and
+            design systems.
           </p>
           <p>
             I’m currently building product at{" "}

@@ -1,5 +1,11 @@
 a {
   text-decoration: underline;
+  text-decoration-color: #707070;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a:hover {

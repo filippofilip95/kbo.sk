@@ -17,7 +17,7 @@ export default function Layout({
     <>
       <Meta {...meta} />
       <Navigation />
-      <main className="mx-auto flex w-full max-w-[640px] items-center justify-center p-10">
+      <main className="mx-auto flex w-full max-w-[640px] items-center justify-center px-4 py-10">
         {children}
       </main>
     </>
