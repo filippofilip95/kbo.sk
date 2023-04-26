@@ -6,7 +6,7 @@ export default function Home() {
     <Layout>
       <article>
         <header className="flex items-center">
-          <Avatar alt="Jakub Krehel" size={56} src="/avatar.jpg" />
+          <Avatar alt="Jakub Krehel" size={56} src="/avatar.png" />
           <div className="ml-4">
             <h1 className="font-medium leading-5 text-text-light dark:text-text-dark">
               Jakub Krehel
